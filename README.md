@@ -6,7 +6,8 @@ A powerful Burp Suite extension that automatically detects and highlights Server
 
 ✨ **Automatic Detection**: Detects SSE responses by Content-Type header and SSE format patterns
 🎨 **Smart Highlighting**: Applies visual markers to SSE event data in Burp Suite's UI
-📋 **Format Detection**: Automatically identifies data format:
+📋 **Event Viewer Dialog**: Pop-up dialog showing parsed SSE events with format detection
+📊 **Format Detection**: Automatically identifies data format:
   - **JSON**: Detects balanced brackets and validates JSON structure
   - **XML**: Recognizes XML declarations and tags
   - **HTML**: Identifies HTML tags and structures
@@ -69,6 +70,7 @@ Once detected, the extension:
 1. Parses individual SSE events
 2. Detects the format of each event's data
 3. Applies visual markers to highlight the data in Burp's UI
+4. **Displays a popup dialog** with parsed events (overcoming Burp's default red highlighting)
 
 ### Supported SSE Fields
 - `event:` - Event name
@@ -77,6 +79,33 @@ Once detected, the extension:
 - `retry:` - Reconnection time in milliseconds
 - `:` - Comments (ignored)
 
+## Event Viewer Dialog
+
+When SSE events are detected, **a popup dialog automatically appears** showing:
+
+### Raw Data Tab
+- Full SSE response with all events
+- Formatted for easy reading
+- Shows complete request/response payload
+
+### Events Summary Tab
+- Individual event breakdown
+- Shows event type, ID, format, and data preview
+- Organized table-like view for quick scanning
+
+**This dialog overcomes the limitation of Burp's default red highlighting** by providing a clear, dedicated view of your SSE data with proper syntax awareness.
+
+### Viewing SSE Events Manually
+
+If the dialog doesn't appear automatically, you can still view SSE events:
+
+1. When you see SSE response in Burp (with red highlighting)
+2. Check the **Extensions > SSE Crayon > Output** tab
+3. The extension will log when it detects SSE
+4. If needed, you can modify the response view to trigger re-detection
+
+The extension monitors all responses and logs SSE detection in the Output tab.
+
 ## Project Structure
 
 ```
@@ -84,6 +113,7 @@ src/main/java/
 ├── Extension.java                    # Main entry point, registers handlers
 ├── SSEProxyResponseHandler.java      # Handles proxy responses
 ├── SSEResponseProcessor.java         # Handles repeater/general HTTP responses
+├── SSEViewerTab.java                 # Event viewer dialog with formatting
 ├── SSEHighlighter.java               # Core highlighting logic
 ├── SSEParser.java                    # Parses SSE format
 ├── FormatDetector.java               # Detects data format (JSON/XML/HTML)

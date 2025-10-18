@@ -6,12 +6,12 @@ public class Extension implements BurpExtension {
     public void initialize(MontoyaApi montoyaApi) {
         montoyaApi.extension().setName("SSE Crayon");
         
-        // Register the proxy response handler for highlighting SSE in proxy
-        montoyaApi.proxy().registerResponseHandler(new SSEProxyResponseHandler(montoyaApi));
-        
-        // Register HTTP handler for repeater support
-        montoyaApi.http().registerHttpHandler(new SSEResponseProcessor(montoyaApi));
+        // Register custom SSE tab in response viewer
+        montoyaApi.userInterface().registerHttpResponseEditorProvider(
+            new SSEResponseEditorProvider(montoyaApi)
+        );
         
         montoyaApi.logging().logToOutput("SSE Crayon extension loaded successfully");
+        montoyaApi.logging().logToOutput("SSE tab now available in all response viewers!");
     }
 }
