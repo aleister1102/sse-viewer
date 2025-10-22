@@ -44,10 +44,10 @@ jobs:
           draft: false
           prerelease: false
           body: |
-            ## SSE Crayon Release ${{ steps.tag_name.outputs.TAG }}
+            ## SSE Viewer Release ${{ steps.tag_name.outputs.TAG }}
             
             ### Installation
-            1. Download `sse-crayon.jar` from the assets below
+            1. Download `sse-viewer.jar` from the assets below
             2. Load the extension in Burp Suite via Extensions > Add
             
             ### Changes
@@ -59,7 +59,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/libs/sse-crayon.jar
-          asset_name: sse-crayon.jar
+          asset_path: ./build/libs/sse-viewer.jar
+          asset_name: sse-viewer.jar
           asset_content_type: application/java-archive
 
