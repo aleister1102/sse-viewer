@@ -1,4 +1,4 @@
-# SSE Crayon
+# SSE Viewer
 
 A Burp Suite extension that adds an "SSE" tab to response viewers for parsing and highlighting Server-Side Events.
 
@@ -20,7 +20,7 @@ A Burp Suite extension that adds an "SSE" tab to response viewers for parsing an
 ./gradlew jar
 ```
 
-Load in Burp: **Extensions > Installed > Add** → `build/libs/sse-crayon.jar`
+Load in Burp: **Extensions > Installed > Add** → `build/libs/sse-viewer.jar`
 
 ### Requirements
 

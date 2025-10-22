@@ -1,1 +1,1 @@
-rootProject.name = "sse-crayon"
+rootProject.name = "sse-viewer"

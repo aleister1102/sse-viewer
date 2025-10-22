@@ -473,7 +473,7 @@ public class SSEResponseEditor implements ExtensionProvidedHttpResponseEditor {
                     if (event.data != null) {
                         StringSelection selection = new StringSelection(event.data);
                         Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, selection);
-                        montoyaApi.logging().logToOutput("SSE Crayon: Copied event #" + (currentRow + 1) + " data to clipboard");
+                        montoyaApi.logging().logToOutput("SSE Viewer: Copied event #" + (currentRow + 1) + " data to clipboard");
                         button.setText("✓ Copied!");
                         
                         // Reset button text after 1 second
