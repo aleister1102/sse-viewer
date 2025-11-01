@@ -1,4 +1,4 @@
-# SSE Viewer
+# SSE Editor
 
 A Burp Suite extension that adds an "SSE" tab to response viewers for parsing and highlighting Server-Side Events.
 
